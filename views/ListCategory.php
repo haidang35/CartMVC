@@ -13,7 +13,7 @@
         <h1 class="text-primary">List category</h1>
         <div class="btn-add-new">
             <button onclick="location.href='?route=addnewcategory'" class="btn btn-success btn-lg">Add new category</button>
-            <button onclick="location.href='Cart.php'" class="btn btn-warning btn-lg">My Cart</button>
+            <button onclick="location.href='?route=cart'" class="btn btn-warning btn-lg">My Cart</button>
         </div>
         <table class="table table-striped table-bordered">
             <thead>

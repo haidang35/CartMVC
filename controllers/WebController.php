@@ -131,9 +131,33 @@ class WebController{
         $quantityProductCurrent = $productCurrent["quantity"];
         $txt_sql2 = "update listproduct set quantity = $quantityProductCurrent where id = $id";
         updateDB($txt_sql2);
-        header("Location: Cart.php");
+        header("Location: ?route=cart");
 
     }
+
+    public function Cart() {
+        $listProduct = [];
+        if($_SESSION["cart"]) {
+            $listProduct = $_SESSION["cart"];
+        }
+        include "views/Cart.php";
+    }
+
+    public function RemoveProductInCart() {
+        $id = $_GET["id"];
+        $listProduct = [];
+        if($_SESSION["cart"]) {
+            $listProduct = $_SESSION["cart"];
+            foreach($listProduct as $key => $value) {
+                if($id === $value["id"]) {
+                    unset($listProduct[$key]);
+                }
+            }
+        }
+        $_SESSION["cart"] = $listProduct;
+        header("Location: ?route=cart");
+    }
+
 
 
 }

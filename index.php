@@ -39,6 +39,12 @@
         case "confirmaddtocart":
             $controller->ConfirmAddToCart();
             break;
+        case "cart":
+            $controller->Cart();
+            break;
+        case "removeproductincart":
+            $controller->RemoveProductInCart();
+            break;
         default:
             $controller->ListCategory();
             break;
